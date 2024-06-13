@@ -1,11 +1,3 @@
-import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
-import kuraImg from "@/public/0.jpg";
-import pasalImg from "@/public/2.jpg";
-import chandaImg from "@/public/3.jpg";
-
 export const links = [
   {
     name: "Home",
@@ -43,21 +35,21 @@ export const projectsData = [
       "Redux",
       "Socket.io",
     ],
-    imageUrl: kuraImg,
+    imageUrl: "/0.jpg",
   },
   {
     title: "Pasal",
     description:
       "I created a e-commerce app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
     tags: ["React", "TypeScript", "Next.js", "scss", "Redux"],
-    imageUrl: pasalImg,
+    imageUrl: "/2.jpg",
   },
   {
     title: "Chanda",
     description:
       "I created a fundrasing app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
     tags: ["React", "Next.js", "Mongoose", "Tailwind"],
-    imageUrl: chandaImg,
+    imageUrl: " /3.jpg",
   },
 ] as const;
 

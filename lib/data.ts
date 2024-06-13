@@ -49,7 +49,7 @@ export const projectsData = [
     description:
       "I created a fundrasing app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
     tags: ["React", "Next.js", "Mongoose", "Tailwind"],
-    imageUrl: " /3.jpg",
+    imageUrl: "/3.jpg",
   },
 ] as const;
 

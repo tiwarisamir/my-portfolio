@@ -35,21 +35,21 @@ export const projectsData = [
       "Redux",
       "Socket.io",
     ],
-    imageUrl: "/0.jpg",
+    imageUrl: "/0.JPG",
   },
   {
     title: "Pasal",
     description:
       "I created a e-commerce app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
     tags: ["React", "TypeScript", "Next.js", "scss", "Redux"],
-    imageUrl: "/2.jpg",
+    imageUrl: "/2.JPG",
   },
   {
     title: "Chanda",
     description:
       "I created a fundrasing app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
     tags: ["React", "Next.js", "Mongoose", "Tailwind"],
-    imageUrl: "/3.jpg",
+    imageUrl: "/3.JPG",
   },
 ] as const;
 

@@ -10,7 +10,7 @@ import ThemeSwitch from "@/components/ThemeSwitch";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Samir | Personal Portfolio",
+  title: "Samir Tiwari | Personal Portfolio",
   description:
     "I am a full-stack developer with expertise in the MERN stack, including React.js, Next.js, Node.js, Express, MongoDB, and TypeScript. I build scalable web applications and handle both front-end and back-end development, focusing on performance and user experience.",
 };

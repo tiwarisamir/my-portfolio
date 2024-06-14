@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
@@ -10,6 +10,8 @@ import SubmitBtn from "./SubmitBtn";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   return (
     <motion.section
@@ -50,10 +52,13 @@ export default function Contact() {
           }
 
           toast.success("Email sent successfully!");
+          if (emailRef.current) emailRef.current.value = "";
+          if (messageRef.current) messageRef.current.value = "";
         }}
       >
         <input
           className="h-14 px-4 rounded-lg borderBlack dark:bg-slate-700 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          ref={emailRef}
           name="senderEmail"
           type="email"
           required
@@ -62,6 +67,7 @@ export default function Contact() {
         />
         <textarea
           className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-slate-700 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          ref={messageRef}
           name="message"
           placeholder="Your message"
           required

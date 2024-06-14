@@ -25,46 +25,46 @@ export const projectsData = [
   {
     title: "Kura",
     description:
-      "I created a chat app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
-    tags: [
-      "React",
-      "NodeJs",
-      "MongoDB",
-      "scss",
-      "Mongoose",
-      "Redux",
-      "Socket.io",
-    ],
-    imageUrl: "/0.JPG",
+      "A real-time chat application that allows users to communicate through text messages.",
+    tags: ["React", "NodeJs", "Mongoose", "SCSS", "Redux", "Socket.io"],
+    codeUrl: "https://github.com/tiwarisamir/kura-the-chat-app",
+    liveUrl: "https://kura-liard.vercel.app",
+    imageUrl: "/kura.JPG",
   },
   {
     title: "Pasal",
     description:
-      "I created a e-commerce app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
-    tags: ["React", "TypeScript", "Next.js", "scss", "Redux"],
-    imageUrl: "/2.JPG",
+      "A comprehensive e-commerce platform that facilitates product browsing, shopping cart functionality.",
+
+    tags: ["React", "TypeScript", "Next.js", "Firebase", "SCSS", "Redux"],
+
+    codeUrl: "https://github.com/tiwarisamir/pasal-the-e-commerce-app",
+    liveUrl: "https://pasal-eta.vercel.app",
+    imageUrl: "/pasal.JPG",
   },
   {
     title: "Chanda",
     description:
-      "I created a fundrasing app. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, sed ",
+      "A platform for individuals, creators, and companies to raise funds from the public.",
+
     tags: ["React", "Next.js", "Mongoose", "Tailwind"],
-    imageUrl: "/3.JPG",
+    codeUrl: "https://github.com/tiwarisamir/chanda-the-crowdfunding-app",
+    liveUrl: "https://chanda-opal.vercel.app",
+    imageUrl: "/Chanda.JPG",
   },
 ] as const;
 
 export const skillsData = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "MongoDB",
-  "Redux",
-  "Express",
-  "Framer Motion",
+  "/html.webp",
+  "/css-3.webp",
+  "/js.webp",
+  "/typescript.webp",
+  "/react.webp",
+  "/nextjs.webp",
+  "/nodejs.webp",
+  "/git.webp",
+  "/Tailwind CSS.webp",
+  "/mongodb.webp",
+  "/redux.webp",
+  "/express.webp",
 ] as const;

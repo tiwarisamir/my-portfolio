@@ -21,8 +21,7 @@ export default function About() {
       <p className="mb-3">
         I am a <span className="font-medium">Full-Stack Developer</span> with
         expertise in the <span className="font-medium">MERN stack</span>,
-        including
-        <span className="underline">React.js,</span>{" "}
+        including <span className="underline">React.js,</span>{" "}
         <span className="underline">Next.js,</span>{" "}
         <span className="underline">Node.js,</span>{" "}
         <span className="underline">Express,</span>{" "}
@@ -30,9 +29,7 @@ export default function About() {
         <span className="underline">TypeScript</span>. I build scalable web
         applications and handle both front-end and back-end development,
         focusing on performance and user experience. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a Full-Stack
-        Developer.
+        learn new technologies.
       </p>
     </motion.section>
   );

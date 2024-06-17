@@ -26,7 +26,7 @@ export const projectsData = [
     title: "Kura",
     description:
       "A real-time chat application that allows users to communicate through text messages.",
-    tags: ["React", "NodeJs", "Mongoose", "SCSS", "Redux", "Socket.io"],
+    tags: ["React", "NodeJs", "Mongoose", "MUI", "Redux", "Socket.io"],
     codeUrl: "https://github.com/tiwarisamir/kura-the-chat-app",
     liveUrl: "https://kura-liard.vercel.app",
     imageUrl: "/kura.JPG",
@@ -36,7 +36,7 @@ export const projectsData = [
     description:
       "A comprehensive e-commerce platform that facilitates product browsing, shopping cart functionality.",
 
-    tags: ["React", "TypeScript", "Next.js", "Firebase", "SCSS", "Redux"],
+    tags: ["React", "TypeScript", "Next.js", "Firebase", "SASS", "Redux"],
 
     codeUrl: "https://github.com/tiwarisamir/pasal-the-e-commerce-app",
     liveUrl: "https://pasal-eta.vercel.app",

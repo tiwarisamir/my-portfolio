@@ -36,7 +36,7 @@ export const projectsData = [
     description:
       "A comprehensive e-commerce platform that facilitates product browsing, shopping cart functionality.",
 
-    tags: ["React", "TypeScript", "Next.js", "Firebase", "SASS", "Redux"],
+    tags: ["React", "TypeScript", "Express", "Firebase", "SASS", "Redux"],
 
     codeUrl: "https://github.com/tiwarisamir/pasal-the-e-commerce-app",
     liveUrl: "https://pasal-eta.vercel.app",

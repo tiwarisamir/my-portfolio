@@ -1,3 +1,9 @@
+import React from "react";
+import { CgWorkAlt } from "react-icons/cg";
+import { FaReact } from "react-icons/fa";
+import { LuGraduationCap } from "react-icons/lu";
+import { SiAdobeillustrator } from "react-icons/si";
+
 export const links = [
   {
     name: "Home",
@@ -16,8 +22,39 @@ export const links = [
     hash: "#skills",
   },
   {
+    name: "Experience",
+    hash: "#experience",
+  },
+  {
     name: "Contact",
     hash: "#contact",
+  },
+] as const;
+
+export const experiencesData = [
+  {
+    title: "Full Stack Developer",
+    work: "Freelancer",
+    description:
+      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind and MongoDB. I'm open to full-time opportunities.",
+    icon: React.createElement(FaReact),
+    date: "Apr 2024 - present",
+  },
+  {
+    title: "Graphic Designer",
+    work: " Freelancer",
+    description:
+      "I've also done graphic design on Upwork as a freelancer, though I'm not very active there now and only take on projects when my previous clients contact me.",
+    icon: React.createElement(SiAdobeillustrator),
+    date: "Nov 2019 - Present",
+  },
+  {
+    title: "Exam Coordinator",
+    work: "Saral Shikshya - Full Time",
+    description:
+      "I have also worked as an Exam Coordinator at Saral Shikshya, where I coordinated with colleges, teachers, and students to develop exam questions, conduct weekly exams, and publish results.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Apr 2023 - Oct 2023",
   },
 ] as const;
 

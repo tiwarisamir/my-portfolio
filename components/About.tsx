@@ -19,17 +19,18 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        I am a <span className="font-medium">Full-Stack Developer</span> with
-        expertise in the <span className="font-medium">MERN stack</span>,
-        including <span className="underline">React.js,</span>{" "}
-        <span className="underline">Next.js,</span>{" "}
-        <span className="underline">Node.js,</span>{" "}
-        <span className="underline">Express,</span>{" "}
-        <span className="underline">MongoDB,</span> and{" "}
-        <span className="underline">TypeScript</span>. I build scalable web
-        applications and handle both front-end and back-end development,
-        focusing on performance and user experience. I am always looking to
-        learn new technologies.
+        I am a Full-Stack Developer specializing in the MERN stack (React.js,
+        Next.js, Node.js, Express, MongoDB, and TypeScript). I build scalable
+        web applications, focusing on both front-end and back-end development to
+        ensure top performance and user experience. I've worked on a wide range
+        of projects, including PaaS products, delivering solutions that meet
+        diverse client needs. My background as a graphic designer on Upwork adds
+        a creative edge to my technical skills, enabling me to create visually
+        appealing and highly functional applications. I collaborate with clients
+        from Upwork and beyond, always eager to learn new technologies and take
+        on new challenges. If you're looking for someone to bring your vision to
+        life with a perfect blend of design and development, let's connect and
+        build something exceptional together.
       </p>
     </motion.section>
   );

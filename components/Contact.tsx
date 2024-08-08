@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
+import { useSectionInView } from "@/lib/hooks";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 import toast from "react-hot-toast";
 import SectionHeading from "./SectionHeading";
 import SubmitBtn from "./SubmitBtn";

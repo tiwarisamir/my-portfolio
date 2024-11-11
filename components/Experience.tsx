@@ -12,7 +12,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<string>();
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";

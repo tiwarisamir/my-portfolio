@@ -33,28 +33,28 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Full Stack Developer",
+    title: "Frontend Developer",
+    work: "Bitspanda",
+    description:
+      "I'm now a Frontend Developer at Bitspanda where i am  working in different projects.",
+    icon: React.createElement(FaReact),
+    date: "Apr 2024 - present",
+  },
+  {
+    title: "Frontend Developer",
     work: "Freelancer",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind and MongoDB. I'm open to full-time opportunities.",
+      "I've worked as a Freelance Frontend Developer where I worked in different Pass projects.",
     icon: React.createElement(FaReact),
     date: "Apr 2024 - present",
   },
   {
     title: "Graphic Designer",
-    work: " Freelancer",
+    work: "Upwork",
     description:
-      "I've also done graphic design on Upwork as a freelancer, though I'm not very active there now and only take on projects when my previous clients contact me.",
+      "I've done graphic design on Upwork as a freelancer, though I'm not very active there now and only take on projects when my previous clients contact me.",
     icon: React.createElement(SiAdobeillustrator),
     date: "Nov 2019 - Present",
-  },
-  {
-    title: "Exam Coordinator",
-    work: "Saral Shikshya - Full Time",
-    description:
-      "I have also worked as an Exam Coordinator at Saral Shikshya, where I coordinated with colleges, teachers, and students to develop exam questions, conduct weekly exams, and publish results.",
-    icon: React.createElement(CgWorkAlt),
-    date: "Apr 2023 - Oct 2023",
   },
 ] as const;
 

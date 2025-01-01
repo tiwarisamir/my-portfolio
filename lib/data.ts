@@ -38,23 +38,23 @@ export const experiencesData = [
     description:
       "I'm now a Frontend Developer at Bitspanda where i am  working in different projects.",
     icon: React.createElement(FaReact),
-    date: "Apr 2024 - present",
+    date: "Nov 2024 - present",
   },
   {
     title: "Frontend Developer",
-    work: "Freelancer",
+    work: "Freelance",
     description:
-      "I've worked as a Freelance Frontend Developer where I worked in different Pass projects.",
+      "I've worked as a Freelance Frontend Developer where I worked on a PaaS project for a food ordering system tailored for restaurants, enabling seamless online order management. I also Contributed to the development of a freelance worker hiring system.",
     icon: React.createElement(FaReact),
-    date: "Apr 2024 - present",
+    date: "Apr 2024 - Oct 2024",
   },
   {
     title: "Graphic Designer",
     work: "Upwork",
     description:
-      "I've done graphic design on Upwork as a freelancer, though I'm not very active there now and only take on projects when my previous clients contact me.",
+      "I Collaborate with clients to create various design projects tailored to their specific requirements.",
     icon: React.createElement(SiAdobeillustrator),
-    date: "Nov 2019 - Present",
+    date: "Nov 2023 - Nov 2024",
   },
 ] as const;
 

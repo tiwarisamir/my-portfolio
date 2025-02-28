@@ -28,7 +28,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/Samir Tiwari.png"
+              src="/Samir Tiwari.jpg"
               alt="Samir Tiwari"
               width="192"
               height="192"

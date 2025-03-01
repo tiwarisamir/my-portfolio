@@ -55,7 +55,7 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-10 mt- px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mb-10 mt- px-4 text-2xl font-medium leading-[1.5]! sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -73,7 +73,7 @@ export default function Intro() {
         }}
       >
         <a
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-hidden focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
           href="/Samir Tiwari_CV.pdf"
           download
         >
@@ -82,7 +82,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-hidden focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
           href="https://blog.samirt.com.np/"
           target="_blank"
         >

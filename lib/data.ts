@@ -60,6 +60,14 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Create Basic Express Server",
+    description: "An npm package for configuring express server.",
+    tags: ["Server", "Express", "npm", "TypeScript"],
+    codeUrl: "https://github.com/tiwarisamir/create-basic-express-server",
+    liveUrl: "https://www.npmjs.com/package/create-basic-express-server",
+    imageUrl: "/create_Server.JPG",
+  },
+  {
     title: "Kura",
     description:
       "A real-time chat application that allows users to communicate through text messages.",
@@ -78,16 +86,6 @@ export const projectsData = [
     codeUrl: "https://github.com/tiwarisamir/pasal-the-e-commerce-app",
     liveUrl: "https://pasal-eta.vercel.app",
     imageUrl: "/pasal.JPG",
-  },
-  {
-    title: "Chanda",
-    description:
-      "A platform for individuals, creators, and companies to raise funds from the public.",
-
-    tags: ["React", "Next.js", "Mongoose", "Tailwind"],
-    codeUrl: "https://github.com/tiwarisamir/chanda-the-crowdfunding-app",
-    liveUrl: "https://chanda-opal.vercel.app",
-    imageUrl: "/Chanda.JPG",
   },
 ] as const;
 

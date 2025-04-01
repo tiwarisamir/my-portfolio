@@ -1,18 +1,38 @@
 import React from "react";
+import { BsLinkedin } from "react-icons/bs";
+import { FaGithubSquare } from "react-icons/fa";
+import { FaHashnode } from "react-icons/fa6";
 
 export default function Footer() {
   const date = new Date();
   const currentYear = date.getFullYear();
   return (
-    <footer className="mb-10 px-4 text-center text-gray-500">
-      <small className="mb-2 block text-xs">
-        &copy; {currentYear} Samir. All rights reserved.
-      </small>
-      <p className="text-xs">
-        <span className="font-semibold">About this website:</span> built with
-        React & Next.js, TypeScript, Tailwind CSS, Framer Motion, React Email &
-        Resend, Vercel hosting.
-      </p>
+    <footer className="mb-5 px-4  text-gray-500 flex items-center justify-between">
+      <p>&copy; {currentYear} Samir Tiwari. All rights reserved.</p>
+      <div className="flex flex-row items-center justify-center gap-3">
+        <a
+          className="  text-gray-700  cursor-pointer   dark:text-white/60"
+          href="https://www.linkedin.com/in/samirtiwari2061/"
+          target="_blank"
+        >
+          <BsLinkedin size={20} />
+        </a>
+
+        <a
+          className="  text-gray-700  cursor-pointer   dark:text-white/60"
+          href="https://github.com/tiwarisamir"
+          target="_blank"
+        >
+          <FaGithubSquare size={20} />
+        </a>
+        <a
+          className="  text-gray-700  cursor-pointer   dark:text-white/60"
+          href="https://blog.samirt.com.np"
+          target="_blank"
+        >
+          <FaHashnode size={20} />
+        </a>
+      </div>
     </footer>
   );
 }

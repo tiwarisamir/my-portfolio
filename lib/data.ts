@@ -7,12 +7,12 @@ import { SiAdobeillustrator } from "react-icons/si";
 export const links = [
   {
     name: "Home",
-    hash: "#home",
+    hash: "/#home",
   },
 
   {
     name: "Projects",
-    hash: "#projects",
+    hash: "/#projects",
   },
   // {
   //   name: "Skills",
@@ -24,7 +24,11 @@ export const links = [
   // },
   {
     name: "Contact",
-    hash: "#contact",
+    hash: "/#contact",
+  },
+  {
+    name: "Blog",
+    hash: "/blog",
   },
 ] as const;
 

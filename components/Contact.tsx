@@ -2,7 +2,6 @@
 
 import { sendEmail } from "@/actions/sendEmail";
 import { useSectionInView } from "@/lib/hooks";
-import { motion } from "framer-motion";
 import { useRef } from "react";
 import toast from "react-hot-toast";
 import SectionHeading from "./SectionHeading";
@@ -14,26 +13,10 @@ export default function Contact() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   return (
-    <motion.section
-      id="contact"
-      ref={ref}
-      className="mb-16  "
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
-    >
+    <section id="contact" ref={ref} className="mb-16  w-full">
       <SectionHeading>Get in touch</SectionHeading>
 
-      <p className="text-gray-700 -mt-6 dark:text-white/80">
+      <p className="text-gray-700 -mt-4 dark:text-white/80">
         Feel free to reach out to me directly at{" "}
         <a className="underline" href="mailto:samirtiwari2061@gmail.com">
           samirtiwari2061@gmail.com
@@ -57,7 +40,7 @@ export default function Contact() {
         }}
       >
         <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-slate-700 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-hidden"
+          className="h-14 px-4 rounded-lg border dark:border-zinc-600 dark:bg-zinc-800/80  dark:focus:bg-zinc-800 transition-all dark:outline-hidden"
           ref={emailRef}
           name="senderEmail"
           type="email"
@@ -66,7 +49,7 @@ export default function Contact() {
           placeholder="Your email"
         />
         <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-slate-700 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-hidden"
+          className="h-52 my-3 rounded-lg   p-4 border dark:border-zinc-600 dark:bg-zinc-800/80   transition-all dark:outline-hidden dark:focus:bg-zinc-800"
           ref={messageRef}
           name="message"
           placeholder="Your message"
@@ -75,6 +58,6 @@ export default function Contact() {
         />
         <SubmitBtn />
       </form>
-    </motion.section>
+    </section>
   );
 }

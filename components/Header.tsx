@@ -20,9 +20,14 @@ export default function Header() {
       ></motion.div> */}
 
       <nav className="flex items-center justify-between fixed top-0  left-1/2  w-full max-w-3xl px-4 -translate-x-1/2 py-3   backdrop-blur-[0.5rem]  dark:bg-zinc-900/80 ">
-        <Link href="/" className="text-2xl font-semibold">
-          Samir
-        </Link>
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          <Link href="/" className="text-2xl font-semibold">
+            Samir
+          </Link>
+        </motion.div>
         <ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1  font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
           {links.map((link) => (
             <motion.li

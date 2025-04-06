@@ -29,12 +29,14 @@ export interface PostNode {
   };
 }
 
+export interface IBlogPostsEdge {
+  node: PostNode;
+}
+
 export interface IBlogPostsResponse {
   user: {
     posts: {
-      edges: {
-        node: PostNode;
-      }[];
+      edges: IBlogPostsEdge[];
       pageInfo: {
         hasNextPage: boolean;
         nextPage: string | null;
@@ -86,26 +88,4 @@ interface Data {
 
 export interface ISingleBlogResponse {
   data?: Data | null;
-}
-
-export interface HashnodePost {
-  title: string;
-  brief: string;
-  slug: string;
-  coverImage: string;
-  dateAdded: string;
-  contentMarkdown?: string;
-  content?: string;
-}
-
-export interface HashnodeResponse {
-  user: {
-    publication: {
-      posts: HashnodePost[];
-    };
-  };
-}
-
-export interface SinglePostResponse {
-  post: HashnodePost;
 }

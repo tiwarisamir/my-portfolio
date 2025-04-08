@@ -1,63 +1,53 @@
+"use client";
+import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import client from "../lib/graphqlClient";
-import { GET_SINGLE_POST } from "../lib/queries";
-import { HashnodePost, SinglePostResponse } from "../lib/types";
+import { Queries } from "@/lib/queries";
+import { HASHNODE_HOST } from "@/lib/constant";
+import { ISingleBlogResponse } from "@/lib/types";
+import client from "@/lib/apolloClient";
 import { useRouter } from "next/router";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import MarkdownRenderer from "./MarkdownRenderer";
 
-const BlogPost = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [post, setPost] = useState<HashnodePost | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        if (!slug) return;
-
-        const variables = {
-          slug: slug as string,
-          hostname: "YOUR_HASHNODE_HOSTNAME", // e.g., 'yourblog.hashnode.dev'
-        };
-
-        const data = await client.request<SinglePostResponse>(
-          GET_SINGLE_POST,
-          variables
-        );
-        setPost(data.post);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to fetch post");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPost();
-  }, [slug]);
-
-  if (loading) return <div className="text-center py-8">Loading...</div>;
-  if (error)
-    return <div className="text-red-500 text-center py-8">Error: {error}</div>;
-  if (!post) return <div className="text-center py-8">Post not found</div>;
+const BlogPost = ({ slug }: { slug: string }) => {
+  const { loading, error, data } = useQuery<ISingleBlogResponse>(
+    Queries.getSinglePost,
+    {
+      client,
+      variables: { slug, host: HASHNODE_HOST },
+    }
+  );
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
-      <article className="prose lg:prose-xl">
-        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-        {post.coverImage && (
-          <img
-            src={post.coverImage}
-            alt={post.title}
-            className="w-full rounded-lg mb-8"
+      {loading && (
+        <div className="w-full flex justify-center items-center py-8">
+          <p>Loading...</p>
+        </div>
+      )}
+      {error && (
+        <div className="text-red-500 text-center py-8">
+          Error: {error.message}
+        </div>
+      )}
+
+      {!loading && !error && data?.publication?.post && (
+        <article className="prose lg:prose-xl">
+          <h1 className="text-4xl font-bold mb-4">
+            {data?.publication?.post?.title}
+          </h1>
+          {data?.publication?.post?.coverImage && (
+            <img
+              src={data?.publication?.post?.coverImage?.url || ""}
+              alt={data?.publication?.post?.title || "cover image"}
+              className="w-full rounded-lg mb-8"
+            />
+          )}
+
+          <MarkdownRenderer
+            markdown={data?.publication?.post?.content?.markdown || ""}
           />
-        )}
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {post.contentMarkdown || post.content || ""}
-        </ReactMarkdown>
-      </article>
+        </article>
+      )}
     </div>
   );
 };

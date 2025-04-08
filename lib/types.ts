@@ -87,5 +87,6 @@ interface Data {
 }
 
 export interface ISingleBlogResponse {
-  data?: Data | null;
+  // data?: Data | null;
+  publication?: Publication | null;
 }

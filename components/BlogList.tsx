@@ -38,14 +38,6 @@ const BlogList = () => {
 
       {!loading && !error && (
         <div className="flex flex-col gap-6">
-          <div className="w-full flex justify-between text-sm text-zinc-600 dark:text-zinc-300 font-medium">
-            <button className="  cursor-pointer underline underline-offset-3">
-              Previous
-            </button>
-            <button className=" cursor-pointer  underline underline-offset-3">
-              Next
-            </button>
-          </div>
           <div className="w-full flex flex-col  gap-6">
             {data?.user?.posts?.edges?.map((post) => (
               <BlogCard key={post.node.id} blog={post} />

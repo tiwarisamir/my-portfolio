@@ -1,35 +1,68 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-import { remark } from "remark";
-import html from "remark-html";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/atom-one-dark.css";
+import { Components } from "react-markdown";
+import React from "react";
 
 interface MarkdownRendererProps {
-  markdown: string;
-  className?: string; // Optional custom styling
+  content: string;
 }
 
-const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
-  markdown,
+export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
+  return (
+    <div className="prose dark:prose-invert max-w-none">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeHighlight]}
+        components={{
+          code: CodeComponent,
+          img: ImageComponent,
+          pre: PreComponent,
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
+}
+
+type CodeProps = {
+  node?: any;
+  inline?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+};
+
+const CodeComponent = ({
+  inline,
   className,
-}) => {
-  const [htmlContent, setHtmlContent] = useState<string>("");
-
-  useEffect(() => {
-    const renderMarkdown = async () => {
-      const processed = await remark().use(html).process(markdown);
-      setHtmlContent(processed.toString());
-    };
-
-    renderMarkdown();
-  }, [markdown]);
+  children,
+  ...props
+}: CodeProps) => {
+  if (inline) {
+    return (
+      <code className="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded text-sm font-mono">
+        {children}
+      </code>
+    );
+  }
 
   return (
-    <div
-      className={`prose ${className || ""}`}
-      dangerouslySetInnerHTML={{ __html: htmlContent }}
-    />
+    <code className={className} {...props}>
+      {children}
+    </code>
   );
 };
 
-export default MarkdownRenderer;
+const PreComponent: Components["pre"] = ({ children, ...props }) => {
+  return (
+    <pre className="bg-[#282c34] rounded-lg p-4 overflow-x-auto" {...props}>
+      {children}
+    </pre>
+  );
+};
+
+const ImageComponent: Components["img"] = ({ node, ...props }) => (
+  <img className="rounded-lg" {...props} alt={props.alt || ""} />
+);

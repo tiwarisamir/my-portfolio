@@ -8,7 +8,6 @@ interface PageProps {
 
 const page = async ({ params }: PageProps) => {
   const { slug } = await params;
-  console.log("slug: ", slug);
   return (
     <div>
       <BlogPost slug={slug} />

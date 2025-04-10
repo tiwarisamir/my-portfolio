@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@import "highlight.js/styles/atom-one-dark.css";
+
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -40,5 +44,32 @@ html.dark {
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+}
+
+.prose {
+  a {
+    @apply text-blue-600 dark:text-blue-400 hover:underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-gray-900 dark:text-gray-100;
+  }
+
+  pre {
+    @apply rounded-lg p-4 my-4 overflow-x-auto;
+  }
+
+  code {
+    @apply text-sm;
+  }
+
+  .inline-code {
+    @apply bg-red-500;
   }
 }

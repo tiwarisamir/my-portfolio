@@ -20,7 +20,7 @@ const BlogPost = ({ slug }: { slug: string }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       {loading && (
-        <div className="w-full flex justify-center items-center py-8">
+        <div className="w-full h-[80vh] flex justify-center items-center py-8">
           <p>Loading...</p>
         </div>
       )}
@@ -32,7 +32,7 @@ const BlogPost = ({ slug }: { slug: string }) => {
 
       {!loading && !error && data?.publication?.post && (
         <article className="prose lg:prose-xl">
-          <h1 className="text-4xl font-bold mb-4">
+          <h1 className="text-sm font-bold mb-4">
             {data?.publication?.post?.title}
           </h1>
           {data?.publication?.post?.coverImage && (
@@ -44,7 +44,7 @@ const BlogPost = ({ slug }: { slug: string }) => {
           )}
 
           <MarkdownRenderer
-            markdown={data?.publication?.post?.content?.markdown || ""}
+            content={data?.publication?.post?.content?.markdown || ""}
           />
         </article>
       )}

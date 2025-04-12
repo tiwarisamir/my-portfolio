@@ -65,7 +65,7 @@ interface Author {
   name?: string | null;
 }
 
-interface Post {
+export interface Post {
   title?: string | null;
   subtitle?: string | null;
   readTimeInMinutes?: number | null;
@@ -76,6 +76,7 @@ interface Post {
   coverImage?: CoverImage | null;
   content?: Content | null;
   author?: Author | null;
+  url: string;
 }
 
 interface Publication {
@@ -87,6 +88,21 @@ interface Data {
 }
 
 export interface ISingleBlogResponse {
-  // data?: Data | null;
   publication?: Publication | null;
+}
+
+export interface IBlogSlugResponse {
+  user?: {
+    posts?: {
+      edges?: {
+        node?: {
+          slug: string;
+        };
+      }[];
+      pageInfo?: {
+        hasNextPage: boolean;
+        nextPage: number;
+      };
+    };
+  };
 }

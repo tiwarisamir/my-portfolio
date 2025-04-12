@@ -1,42 +1,44 @@
-"use client";
+// components/Pagination.tsx
+import Link from "next/link";
+import React from "react";
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+export interface PaginationProps {
+  currentPage: number;
+  hasNextPage: boolean;
+}
 
-const Pagination: React.FC = () => {
-  const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    const page = parseInt(router.query.page as string) || 1;
-    setCurrentPage(page);
-  }, [router.query.page]);
-
-  const handlePageChange = (newPage: number) => {
-    router.push({
-      pathname: router.pathname,
-      query: { ...router.query, page: newPage },
-    });
-  };
+export default function Pagination({
+  currentPage,
+  hasNextPage,
+}: PaginationProps) {
+  const prevPage = currentPage > 1 ? currentPage - 1 : null;
+  const nextPage = hasNextPage ? currentPage + 1 : null;
 
   return (
-    <div className="w-full flex justify-between text-sm text-zinc-600 dark:text-zinc-300 font-medium">
-      <button
-        className="cursor-pointer underline underline-offset-3"
-        onClick={() => handlePageChange(currentPage - 1)}
-        disabled={currentPage <= 1}
-      >
-        Previous
-      </button>
-      <span>Page {currentPage}</span>
-      <button
-        className="cursor-pointer underline underline-offset-3"
-        onClick={() => handlePageChange(currentPage + 1)}
-      >
-        Next
-      </button>
-    </div>
-  );
-};
+    <nav className="flex justify-between  py-8 text-sm font-medium">
+      {prevPage ? (
+        <Link
+          href={`/blog?page=${prevPage}`}
+          className=" underline underline-offset-4 hover:text-zinc-500"
+        >
+          Previous
+        </Link>
+      ) : (
+        <span className=" text-zinc-400">Previous</span>
+      )}
 
-export default Pagination;
+      <span>Page {currentPage}</span>
+
+      {nextPage ? (
+        <Link
+          href={`/blog?page=${nextPage}`}
+          className=" underline underline-offset-4 hover:text-zinc-500"
+        >
+          Next
+        </Link>
+      ) : (
+        <span className="text-gray-400">Next</span>
+      )}
+    </nav>
+  );
+}

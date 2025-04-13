@@ -4,6 +4,9 @@ import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { getPostSlugs, getSinglePost } from "@/lib/queries";
 import { Post } from "@/lib/types";
 import { BASE_URL } from "@/lib/constant";
+import Image from "next/image";
+import { IoBookOutline } from "react-icons/io5";
+import ProfileCard from "@/components/ProfileCard";
 
 export async function generateStaticParams() {
   const slugs = await getPostSlugs();
@@ -32,7 +35,7 @@ export async function generateMetadata({
     const title = post.title ?? "Blog | Samir Tiwari";
     const description = (post.seo?.description || post.brief) ?? "";
     const image = post.coverImage?.url;
-    const url = post.url;
+    const url = `${BASE_URL}/blog/${slug}`;
 
     return {
       title,
@@ -80,12 +83,38 @@ export default async function PostPage({
   const image = post.coverImage?.url;
 
   return (
-    <article className="max-w-3xl mx-auto px-4 py-8 prose lg:prose-xl">
-      <h1 className="text-2xl font-bold mb-4">{title}</h1>
+    <article className="max-w-3xl mx-auto px-4 py-8 ">
       {image && (
-        <img src={image} alt={title} className="w-full rounded-lg mb-8" />
+        <Image
+          src={image}
+          alt={title}
+          width={1200}
+          height={300}
+          className="w-full h-auto rounded-lg mb-5"
+        />
       )}
-      <MarkdownRenderer content={post.content?.markdown ?? ""} />
+      <h1 className="text-4xl font-bold ">{title}</h1>
+
+      <div className="flex gap-2 items-center text-sm text-gray-500 font-medium my-4">
+        <div className="flex items-center gap-2 max-sm:hidden ">
+          <ProfileCard css="w-6 h-6" />
+          <span>Samir Tiwari</span>
+        </div>
+        <span className="text-gray-400 max-sm:hidden"> • </span>
+
+        <span className="flex items-center gap-1">
+          <IoBookOutline /> {post?.readTimeInMinutes} min read
+        </span>
+        <span className="text-gray-400"> • </span>
+        {new Date(post?.publishedAt ?? "").toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </div>
+      <div className="prose lg:prose-xl">
+        <MarkdownRenderer content={post.content?.markdown ?? ""} />
+      </div>
     </article>
   );
 }

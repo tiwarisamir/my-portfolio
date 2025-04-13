@@ -1,7 +1,7 @@
-import { getPosts } from "@/lib/queries";
 import BlogCard from "@/components/BlogCard";
 import Pagination from "@/components/Pagination";
 import SectionHeading from "@/components/SectionHeading";
+import { getPosts } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
 

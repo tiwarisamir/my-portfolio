@@ -8,7 +8,7 @@ export default function SubmitBtn() {
   return (
     <button
       type="submit"
-      className="group w-fit bg-gray-900 text-white dark:bg-white/10 border border-gray-300  px-6 py-3 flex items-center justify-center gap-2 rounded-lg focus:scale-110 hover:scale-105 hover:bg-gray-950 active:scale-105 transition  "
+      className="group w-full bg-gray-900 text-white dark:bg-white/10 border border-gray-300  px-6 py-3 flex items-center justify-center gap-2 rounded-lg focus:scale-110 hover:scale-105 hover:bg-gray-950 active:scale-105 transition  "
       disabled={pending}
     >
       {pending ? (

@@ -142,10 +142,10 @@ export const getPostSlugs = async (pageSize = BLOGS_PER_PAGE, page = 1) => {
   return slugs.map((s) => s.slug);
 };
 
-export const getPosts = async (page: number) => {
+export const getPosts = async (page: number, pageSize?: number) => {
   const res = await GQLRequest<IBlogPostsResponse>(Queries.getPosts, {
     username: HASHNODE_USERNAME,
-    pageSize: BLOGS_PER_PAGE,
+    pageSize: pageSize || BLOGS_PER_PAGE,
     page: page,
   });
   return res?.user?.posts;

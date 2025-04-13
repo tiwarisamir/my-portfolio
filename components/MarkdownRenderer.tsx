@@ -3,25 +3,33 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { Components } from "react-markdown";
-import React from "react";
+import React, { isValidElement, ReactNode } from "react";
 
 interface MarkdownRendererProps {
   content: string;
 }
 
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
+  const processedContent = content.replace(
+    /!\[\]\((.*?)\s+align="(.*?)"\)/g,
+    (match, url, align) => {
+      return `![${align}](${url})`;
+    }
+  );
+
   return (
     <div className="prose dark:prose-invert max-w-none">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
         components={{
+          p: ParagraphComponent,
           code: CodeComponent,
           img: ImageComponent,
           pre: PreComponent,
         }}
       >
-        {content}
+        {processedContent}
       </ReactMarkdown>
     </div>
   );
@@ -63,6 +71,32 @@ const PreComponent: Components["pre"] = ({ children, ...props }) => {
   );
 };
 
-const ImageComponent: Components["img"] = ({ node, ...props }) => (
-  <img className="rounded-lg" {...props} alt={props.alt || ""} />
-);
+const ParagraphComponent: Components["p"] = (props) => {
+  const childrenArray = React.Children.toArray(props.children);
+
+  if (childrenArray.length === 1) {
+    const firstChild = childrenArray[0];
+
+    if (React.isValidElement(firstChild) && firstChild.type === "img") {
+      return <>{firstChild}</>;
+    }
+  }
+
+  return <p {...props} />;
+};
+
+const ImageComponent: Components["img"] = ({ node, ...props }) => {
+  const alignment = props.alt?.match(/(center|left|right)/)?.[0] || "center";
+
+  return (
+    <img
+      className={`rounded-lg max-w-full h-auto block my-4
+        ${alignment === "center" ? "mx-auto" : ""}
+        ${alignment === "right" ? "ml-auto" : ""}
+        ${alignment === "left" ? "mr-auto" : ""}
+      `}
+      src={props.src}
+      alt={props.alt?.replace(/(center|left|right)/, "")}
+    />
+  );
+};

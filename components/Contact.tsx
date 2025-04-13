@@ -40,7 +40,7 @@ export default function Contact() {
         }}
       >
         <input
-          className="h-14 px-4 rounded-lg border dark:border-zinc-600 dark:bg-zinc-800/80  dark:focus:bg-zinc-800 transition-all dark:outline-hidden"
+          className="h-14 px-4 rounded-lg border dark:border-zinc-600 dark:bg-zinc-800/80 dark:focus:bg-zinc-800 transition-all dark:outline-hidden placeholder-gray-500 dark:placeholder-gray-400"
           ref={emailRef}
           name="senderEmail"
           type="email"
@@ -48,8 +48,9 @@ export default function Contact() {
           maxLength={500}
           placeholder="Your email"
         />
+
         <textarea
-          className="h-52 my-3 rounded-lg   p-4 border dark:border-zinc-600 dark:bg-zinc-800/80   transition-all dark:outline-hidden dark:focus:bg-zinc-800"
+          className="h-52 my-3 rounded-lg p-4 border dark:border-zinc-600 dark:bg-zinc-800/80 transition-all dark:outline-hidden dark:focus:bg-zinc-800 placeholder-gray-500 dark:placeholder-gray-400"
           ref={messageRef}
           name="message"
           placeholder="Your message"

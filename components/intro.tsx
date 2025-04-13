@@ -7,6 +7,7 @@ import Image from "next/image";
 import { BsLinkedin } from "react-icons/bs";
 import { FaBlog, FaGithubSquare } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
+import ProfileCard from "./ProfileCard";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -44,16 +45,9 @@ export default function Intro() {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "tween", duration: 0.2 }}
+          className="mt-10"
         >
-          <Image
-            src="/Samir Tiwari.jpg"
-            alt="Samir Tiwari"
-            width="180"
-            height="220"
-            quality="95"
-            priority
-            className="h-40 w-32 sm:h-48 sm:w-48 rounded-full object-cover border-4 border-white shadow-xl mt-10"
-          />
+          <ProfileCard css=" h-32 w-32 sm:h-48 sm:w-48 border-4 border-white" />
         </motion.div>
       </div>
 

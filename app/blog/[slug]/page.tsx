@@ -15,8 +15,9 @@ export const dynamicParams = true;
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const { slug } = await params;
   const DEFAULT_META = {
     title: "Blog | Samir Tiwari",
     description:
@@ -24,7 +25,7 @@ export async function generateMetadata({
   };
 
   try {
-    const post = await getSinglePost(params.slug);
+    const post = await getSinglePost(slug);
 
     if (!post) return { title: "Post not found" };
 
@@ -55,7 +56,7 @@ export async function generateMetadata({
       ...DEFAULT_META,
       openGraph: {
         ...DEFAULT_META,
-        url: new URL(`${BASE_URL}/blog/${params.slug}`),
+        url: new URL(`${BASE_URL}/blog/${slug}`),
       },
       twitter: {
         ...DEFAULT_META,
@@ -68,9 +69,10 @@ export async function generateMetadata({
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await getSinglePost(params.slug);
+  const { slug } = await params;
+  const post = await getSinglePost(slug);
 
   if (!post) notFound();
 

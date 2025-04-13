@@ -5,12 +5,13 @@ import SectionHeading from "@/components/SectionHeading";
 
 export const dynamic = "force-dynamic";
 
-interface BlogPageProps {
-  searchParams: { page?: string };
-}
-
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const currentPage = parseInt(searchParams.page || "1", 10);
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const { page } = await searchParams;
+  const currentPage = parseInt(page || "1", 10);
   const postsConnection = await getPosts(currentPage);
   const edges = postsConnection?.edges ?? [];
   const hasNextPage = postsConnection?.pageInfo?.hasNextPage ?? false;

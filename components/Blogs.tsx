@@ -8,7 +8,7 @@ const Blogs = async () => {
   const edges = postsConnection?.edges ?? [];
 
   return (
-    <div className="max-w-6xl mx-auto w-full py-8">
+    <section className="max-w-6xl mx-auto w-full py-8">
       <SectionHeading>Recent Blogs</SectionHeading>
 
       <div className="flex flex-col gap-6 mb-5">
@@ -23,7 +23,7 @@ const Blogs = async () => {
       >
         More Blog
       </Link>
-    </div>
+    </section>
   );
 };
 
